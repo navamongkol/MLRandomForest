@@ -1,0 +1,33 @@
+SCI-KIT LEARN
+
+Imputer
+from sklearn.preprocessing import Imputer
+Imputer is transformer for replacing NaNs with anything you want.
+
+CountVectorizer
+from sklearn.feature_extraction.text import CountVectorizer
+
+How can we union feature without LabelEncoder?
+Ans Yes, we can. We can use 'FunctionTransformer', then use 'FeatureUnion'
+from sklearn.preprocessing import FunctionTransformer
+from sklearn.pipeline import FeatureUnion
+
+First we need to fit_transform(xxx) by using 'FunctionTransformer' for text and numeric.
+
+get_text_data = FunctionTransformer(lambda x: x['text'], validate=False)
+get_numeric_data = FunctionTransformer(lambda x: x[['numeric', 'with_missing']], validate=False)
+
+We use 'Imputer' for numeric feature.
+       'CountVectorizer' for text feature.
+then, union by 'FeatureUnion'
+
+Hashing
+It can use for any data type
+from sklearn.feature_extraction.text import HasingVectorizer
+
+GITHUB source for datacamp
+https://github.com/datacamp/course-resources-ml-with-experts-budgets/blob/master/notebooks/1.0-full-model.ipynb
+
+???OneVS???
+
+Data driven
